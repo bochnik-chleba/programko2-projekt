@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinární evidence klientů</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theScreen">
+
+        <div class="header">
+            <div class="nav">
+                <div>
+                    <h1>Evidence návštěv pacientů</h1>
+                </div>
+
+                <div class="navFlex">
+                    <a href=""><h2>Login</h2></a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="timetable">
+
+        </div>
+
+        <div class="sidebar">
+            <form>
+                <label for="majitel">Jméno majitele:</label><br>
+                <input type="text" id="majitel" name="majitel" placeholder="Jan Novák" required><br>
+
+                <label for="kontakt">Kontakt na majitele:</label><br>
+                <select name="predvolba" id="predvolba">
+                    <option value="+420" selected >+420</option>
+                    <option value="+421">+421</option>
+                </select>
+
+                <input type="tel" id="tel" placeholder="123 456 789"
+                pattern="(^[0-9]{9}$)|(^[0-9]{3}+((\s|-)[0-9]{3}){2}$)"><br>
+
+                <input type="email" id="email" name="kontakt" placeholder="emailová adresa"
+                pattern="^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"><br>
+
+                <label for="druh">Druh zvířete:</label><br>
+                <select name="druh" id="druh" required>
+                    <option value="pes">Pes</option>
+                    <option value="kocka">Kočka</option>
+                    <option value="kralik">Králík</option>
+                    <option value="zelva">Želva</option>
+                </select>
+                
+            </form>
+        </div>
+
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>

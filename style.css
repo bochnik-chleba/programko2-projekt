@@ -1,0 +1,70 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+
+    font-family: Verdana, Tahoma, sans-serif;
+    color: bisque;
+
+    scroll-behavior: smooth;
+}
+
+.theScreen{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgb(116, 110, 90);
+    padding: 15px;
+
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    grid-template-rows: 1fr 11fr;
+    grid-template-areas:
+        "header header"
+        "timetable sidebar";
+    gap: 15px;
+}
+
+.theScreen div{
+    background-color: rgb(34, 32, 30);
+    padding: 12px;
+    border-radius: 7px;
+}
+
+.theScreen div.header{
+    grid-area: header;
+    align-content: center;
+}
+
+div.header div.nav{
+    display: flex;
+    background-color: rgb(83, 79, 63);
+    justify-content: space-between;
+}
+
+div.nav div.navFlex{
+    display: flex;
+    justify-content: left;
+    align-content: center;
+}
+
+.theScreen div.timetable{
+    grid-area: timetable;
+    overflow: auto;
+}
+
+.theScreen div.sidebar{
+    grid-area: sidebar;
+    overflow: auto;
+    font-size: 22px;
+
+}
+
+input{
+    background-color: transparent;
+}
+
+select, ::picker(select){
+    background-color: rgb(34, 30, 26);
+    appearance: base-select;
+}
