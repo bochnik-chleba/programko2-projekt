@@ -1,1 +1,1 @@
-# programko2-projekt
+# (Amatérský) Informační systém pro veterinární ordinaci
