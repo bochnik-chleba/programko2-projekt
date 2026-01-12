@@ -7,7 +7,6 @@ form.addEventListener("submit",(e)=>{
 
     const majitel = document.getElementById("majitel").value;
     const tel = document.getElementById("predvolba").value + " " + document.getElementById("tel").value;
-}
 
     /*
     function ()
@@ -32,6 +31,7 @@ form.addEventListener("submit",(e)=>{
             alert("Neplatné telefonní číslo!");
             return;
         }
+   }
     */
 
     const email = document.getElementById("email").value ?
