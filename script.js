@@ -33,8 +33,6 @@ form.addEventListener("submit",(e)=>{
     if(urgent)
     {
         newAppointment.style.backgroundColor="red";
-
-        name.innerText+="\t URGENT";
     }
 
     const inner = document.createElement("p");
@@ -49,9 +47,19 @@ form.addEventListener("submit",(e)=>{
         newAppointment.remove();
     })
 
+    const editBtn = document.createElement("button");
+    editBtn.innerText="Upravit";
+
     newAppointment.appendChild(name);
     newAppointment.appendChild(inner);
     newAppointment.appendChild(cancelBtn);
+    newAppointment.appendChild(editBtn);
+
+    editBtn.addEventListener("click",(e)=>{
+        editingThis=e.target.parentElement;
+
+        document.getElementById("submit").value="Změnit";
+    })
 
     timetable.appendChild(newAppointment);
     form.reset();
