@@ -29,28 +29,36 @@
         <div class="sidebar">
             <form>
                 <label for="majitel">Jméno majitele:</label><br>
-                <input type="text" id="majitel" name="majitel" placeholder="Jan Novák" required><br>
+                <input type="text" id="majitel" name="majitel" placeholder="Jan Novák" size="24" required><br>
 
                 <label for="kontakt">Kontakt na majitele:</label><br>
                 <select name="predvolba" id="predvolba">
-                    <option value="+420" selected >+420</option>
-                    <option value="+421">+421</option>
+                    <option value="cz" selected >+420</option>
+                    <option value="sk">+421</option>
                 </select>
 
-                <input type="tel" id="tel" placeholder="123 456 789"
+                <input type="tel" id="tel" placeholder="123 456 789" size="9"
                 pattern="(^[0-9]{9}$)|(^[0-9]{3}+((\s|-)[0-9]{3}){2}$)"><br>
 
-                <input type="email" id="email" name="kontakt" placeholder="emailová adresa"
+                <input type="email" id="email" name="kontakt" placeholder="Emailová adresa" size="24"
                 pattern="^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"><br>
 
                 <label for="druh">Druh zvířete:</label><br>
                 <select name="druh" id="druh" required>
-                    <option value="pes">Pes</option>
-                    <option value="kocka">Kočka</option>
-                    <option value="kralik">Králík</option>
-                    <option value="zelva">Želva</option>
-                </select>
+                    <option value="Pes">Pes</option>
+                    <option value="Kočka">Kočka</option>
+                    <option value="Králík">Králík</option>
+                    <option value="Želva">Želva</option>
+                    <option value="Had">Had</option>
+                </select><br>
                 
+                <label for="datum">Datum návštěvy:</label><br>
+                <input type="datetime-local" id="datum" name="datum" required><br>
+
+                <label for="notes">Poznatky:</label><br>
+                <textarea id="notes" name="notes" rows="7" cols="50"></textarea><br>
+
+                <input type="submit" id="submit" value="Zapsat">
             </form>
         </div>
 
