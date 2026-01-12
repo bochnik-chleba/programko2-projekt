@@ -16,32 +16,30 @@
                 </div>
 
                 <div class="navFlex">
-                    <a href=""><h2>Login</h2></a>
+                    <a href=""><h2>Log in</h2></a>
 
                 </div>
             </div>
         </div>
 
-        <div class="timetable">
+        <div class="timetable" id="timetable">
 
         </div>
 
         <div class="sidebar">
-            <form>
+            <form id="form">
                 <label for="majitel">Jméno majitele:</label><br>
                 <input type="text" id="majitel" name="majitel" placeholder="Jan Novák" size="24" required><br>
 
-                <label for="kontakt">Kontakt na majitele:</label><br>
+                <label>Kontakt na majitele:</label><br>
                 <select name="predvolba" id="predvolba">
-                    <option value="cz" selected >+420</option>
-                    <option value="sk">+421</option>
+                    <option value="+420 " selected >+420</option>
+                    <option value="+421">+421</option>
                 </select>
 
-                <input type="tel" id="tel" placeholder="123 456 789" size="9"
-                pattern="(^[0-9]{9}$)|(^[0-9]{3}+((\s|-)[0-9]{3}){2}$)"><br>
+                <input type="tel" id="tel" name="kontakt" placeholder="123 456 789" size="9"><br>
 
-                <input type="email" id="email" name="kontakt" placeholder="Emailová adresa" size="24"
-                pattern="^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"><br>
+                <input type="email" id="email" placeholder="Emailová adresa" size="24"><br>
 
                 <label for="druh">Druh zvířete:</label><br>
                 <select name="druh" id="druh" required>
@@ -57,6 +55,9 @@
 
                 <label for="notes">Poznatky:</label><br>
                 <textarea id="notes" name="notes" rows="7" cols="50"></textarea><br>
+
+                <input type="checkbox" id="urgent" name="urgent" value="urgent">
+                <label for="urgent">Urgentní?</label><br>
 
                 <input type="submit" id="submit" value="Zapsat">
             </form>

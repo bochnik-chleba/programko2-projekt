@@ -1,0 +1,58 @@
+const form = document.getElementById("form");
+
+let editingThis=null;
+
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    const majitel = document.getElementById("majitel").value;
+    const tel = document.getElementById("tel").value ?
+        document.getElementById("predvolba").value + " " + document.getElementById("tel").value
+        : "neuveden";
+    const email = document.getElementById("email").value ?
+        document.getElementById("email").value
+        : "neuveden";
+    const zvire = document.getElementById("druh").value;
+    const datum = document.getElementById("datum").value;
+    const notes = document.getElementById("notes").value;
+    const urgent = document.getElementById("urgent").checked;
+
+    const timetable = document.getElementById("timetable");
+
+    if(editingThis!=null)
+    {
+
+    }
+
+    const newAppointment = document.createElement("div");
+    newAppointment.className="appointment";
+
+    const name = document.createElement("h3");
+    name.innerText=majitel + " - " + zvire + "\n" + datum;
+
+    if(urgent)
+    {
+        newAppointment.style.backgroundColor="red";
+
+        name.innerText+="\t URGENT";
+    }
+
+    const inner = document.createElement("p");
+    inner.innerText="Telefon: " + tel +"; Email: " + email;
+    inner.innerText+= notes ? "\n // " + notes : "";
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.innerText="Zrušit";
+
+    cancelBtn.addEventListener("click",(e)=>{
+
+        newAppointment.remove();
+    })
+
+    newAppointment.appendChild(name);
+    newAppointment.appendChild(inner);
+    newAppointment.appendChild(cancelBtn);
+
+    timetable.appendChild(newAppointment);
+    form.reset();
+});

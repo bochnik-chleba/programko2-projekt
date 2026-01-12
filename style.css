@@ -63,7 +63,7 @@ div.nav div.navFlex{
 
 }
 
-input, select, ::picker(select),textarea{
+input, select, ::picker(select),textarea, button{
     border-color: rgb(151, 131, 107);
     border-width: 3px;
     border-radius: 3px;
@@ -73,7 +73,7 @@ input, select, ::picker(select),textarea{
     padding: 4px;
 }
 
-input, textarea{
+input, textarea, button{
     background-color: transparent;
 }
 
@@ -88,7 +88,7 @@ select, ::picker(select){
     background-color: rgb(34, 32, 30);
 }
 
-input:focus, select:focus{
+input:focus, select:focus, textarea:focus{
     background-color: rgb(51, 46, 41);
     border-color: beige;
 }
@@ -100,7 +100,7 @@ input:focus, select:focus{
     margin-top: 35px;
 }
 
-#submit:hover{
+#submit:hover, button:hover{
     font-size: 27px;
     background-color: rgb(87, 75, 60);
 }
