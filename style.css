@@ -63,7 +63,7 @@ div.nav div.navFlex{
 
 }
 
-input, select, ::picker(select),textarea, button{
+input, select, ::picker(select), textarea, button{
     border-color: rgb(151, 131, 107);
     border-width: 3px;
     border-radius: 3px;
@@ -81,7 +81,7 @@ textarea{
     field-sizing: content;
     min-block-size: 3.5rlh;
     min-inline-size: 20ch;
-    max-inline-size: 40ch
+    max-inline-size: 40ch;
 }
 
 select, ::picker(select){

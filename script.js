@@ -6,12 +6,47 @@ form.addEventListener("submit",(e)=>{
     e.preventDefault();
 
     const majitel = document.getElementById("majitel").value;
-    const tel = document.getElementById("tel").value ?
-        document.getElementById("predvolba").value + " " + document.getElementById("tel").value
-        : "neuveden";
+    const tel = document.getElementById("predvolba").value + " " + document.getElementById("tel").value;
+}
+
+    /*
+    function ()
+        {
+            if(!document.getElementById("tel").value)
+            {
+                return "neuveden";
+            }
+
+            const regTel = /^([0-9]{3})+((\s|[-]+){1})*([0-9]{3})+((\s|[-]+){1})*([0-9]{3})$/
+
+            if(!regTel.test(document.getElementById("tel").value))
+            {
+                return "bad";
+            }
+
+            return document.getElementById("predvolba").value + " " + document.getElementById("tel").value;
+        }
+
+        if(tel=="bad")
+        {
+            alert("Neplatné telefonní číslo!");
+            return;
+        }
+    */
+
     const email = document.getElementById("email").value ?
         document.getElementById("email").value
         : "neuveden";
+
+    if(email!="neuveden")
+    {
+        const regEmail = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+        if(!regEmail.test(email))
+        {
+            alert("Neplatná emailová adresa!");
+            return;
+        }
+    }
     const zvire = document.getElementById("druh").value;
     const datum = document.getElementById("datum").value;
     const notes = document.getElementById("notes").value;
