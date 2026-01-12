@@ -2,39 +2,31 @@ const form = document.getElementById("form");
 
 let editingThis=null;
 
+//todo
+//udelat profil zvirete/majitele
+//veteritarni minulost mazlicka - posledni vakcinace/ kontrola/ zraneni/ nemoc
+
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
 
-    const majitel = document.getElementById("majitel").value;
-    const tel = document.getElementById("predvolba").value + " " + document.getElementById("tel").value;
+    let majitel = document.getElementById("majitel").value;
 
-    /*
-    function ()
-        {
-            if(!document.getElementById("tel").value)
-            {
-                return "neuveden";
-            }
+    const regTel = /^([0-9]{3})+((\s|[-]+){1})*([0-9]{3})+((\s|[-]+){1})*([0-9]{3})$/
 
-            const regTel = /^([0-9]{3})+((\s|[-]+){1})*([0-9]{3})+((\s|[-]+){1})*([0-9]{3})$/
+    let tel = !document.getElementById("tel").value ?
+        "neuveden" :
+        !regTel.test(document.getElementById("tel").value) ?
+        "bad" :
+        document.getElementById("predvolba").value + " " + document.getElementById("tel").value;
 
-            if(!regTel.test(document.getElementById("tel").value))
-            {
-                return "bad";
-            }
+    if(tel=="bad")
+    {
+        alert("Neplatné telefonní číslo!");
+        return;
+    }
 
-            return document.getElementById("predvolba").value + " " + document.getElementById("tel").value;
-        }
 
-        if(tel=="bad")
-        {
-            alert("Neplatné telefonní číslo!");
-            return;
-        }
-   }
-    */
-
-    const email = document.getElementById("email").value ?
+    let email = document.getElementById("email").value ?
         document.getElementById("email").value
         : "neuveden";
 
@@ -47,32 +39,51 @@ form.addEventListener("submit",(e)=>{
             return;
         }
     }
-    const zvire = document.getElementById("druh").value;
-    const datum = document.getElementById("datum").value;
-    const notes = document.getElementById("notes").value;
-    const urgent = document.getElementById("urgent").checked;
+    let zvire = document.getElementById("druh").value;
+    let datum = document.getElementById("datum").value;
+    let notes = document.getElementById("notes").value;
+    let urgent = document.getElementById("urgent").checked;
 
     const timetable = document.getElementById("timetable");
 
     if(editingThis!=null)
     {
-
+        //editingThis
     }
 
     const newAppointment = document.createElement("div");
     newAppointment.className="appointment";
 
-    const name = document.createElement("h3");
-    name.innerText=majitel + " - " + zvire + "\n" + datum;
+    const innerName = document.createElement("h3");
+    innerName.style.display="inline";
+    innerName.className="innerName";
+    innerName.innerText=majitel + " - " ;
+
+    const innerAnimal = document.createElement("h3");
+    innerAnimal.style.display="inline";
+    innerAnimal.className="innerAnimal";
+    innerAnimal.innerText= zvire;
+
+    const innerDate = document.createElement("h4");
+    innerDate.className="innerDate";
+    innerDate.innerText=datum;
 
     if(urgent)
     {
         newAppointment.style.backgroundColor="red";
     }
 
-    const inner = document.createElement("p");
-    inner.innerText="Telefon: " + tel +"; Email: " + email;
-    inner.innerText+= notes ? "\n // " + notes : "";
+    const innerTel = document.createElement("p");
+    innerTel.className="innerTel";
+    innerTel.innerText="Telefon: " + tel;
+
+    const innerEmail = document.createElement("p");
+    innerEmail.className="innerEmail";
+    innerEmail.innerText="Email: " + email;
+
+    const innerNotes = document.createElement("p");
+    innerNotes.className="innerNotes";
+    innerNotes.innerText+= notes ? "// " + notes : "";
 
     const cancelBtn = document.createElement("button");
     cancelBtn.innerText="Zrušit";
@@ -85,13 +96,17 @@ form.addEventListener("submit",(e)=>{
     const editBtn = document.createElement("button");
     editBtn.innerText="Upravit";
 
-    newAppointment.appendChild(name);
-    newAppointment.appendChild(inner);
+    newAppointment.appendChild(innerName);
+    newAppointment.appendChild(innerAnimal);
+    newAppointment.appendChild(innerTel);
+    newAppointment.appendChild(innerEmail);
     newAppointment.appendChild(cancelBtn);
     newAppointment.appendChild(editBtn);
 
     editBtn.addEventListener("click",(e)=>{
         editingThis=e.target.parentElement;
+
+        majitel=editingThis.querySelector(".innerTel")
 
         document.getElementById("submit").value="Změnit";
     })
