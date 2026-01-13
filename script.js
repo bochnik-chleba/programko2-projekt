@@ -25,7 +25,6 @@ form.addEventListener("submit",(e)=>{
         return;
     }
 
-
     let email = document.getElementById("email").value ?
         document.getElementById("email").value
         : "neuveden";
@@ -116,6 +115,7 @@ form.addEventListener("submit",(e)=>{
         email=editingThis.querySelector(".innerEmail").innerText;
 
         document.getElementById("submit").value="Změnit";
+        form.ontimeupdate(e);
     })
 
     timetable.appendChild(newAppointment);
