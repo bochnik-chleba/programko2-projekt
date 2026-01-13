@@ -98,15 +98,22 @@ form.addEventListener("submit",(e)=>{
 
     newAppointment.appendChild(innerName);
     newAppointment.appendChild(innerAnimal);
+    newAppointment.appendChild(innerDate);
     newAppointment.appendChild(innerTel);
     newAppointment.appendChild(innerEmail);
+    newAppointment.appendChild(innerNotes);
     newAppointment.appendChild(cancelBtn);
     newAppointment.appendChild(editBtn);
 
     editBtn.addEventListener("click",(e)=>{
         editingThis=e.target.parentElement;
 
-        majitel=editingThis.querySelector(".innerTel")
+        majitel=editingThis.querySelector(".innerName").innerText;
+        zvire=editingThis.querySelector(".innerAnimal").innerText;
+        datum=editingThis.querySelector(".innerDate").innerText;
+
+        tel=editingThis.querySelector(".innerTel").innerText;
+        email=editingThis.querySelector(".innerEmail").innerText;
 
         document.getElementById("submit").value="Změnit";
     })
